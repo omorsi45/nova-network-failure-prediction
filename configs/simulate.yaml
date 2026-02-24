@@ -1,0 +1,8 @@
+seed: 7
+nodes: 8
+days: 2
+failure_types:
+  - congestion
+  - cpu_spike
+  - link_flap
+failure_rate_per_day: 1.5

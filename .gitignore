@@ -1,0 +1,41 @@
+# python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.venv/
+.uv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.tox/
+.coverage
+coverage.xml
+htmlcov/
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+
+# data/artifacts
+data/raw/
+data/interim/
+data/processed/
+artifacts/models/
+artifacts/reports/
+artifacts/figures/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# editors
+.idea/
+.vscode/

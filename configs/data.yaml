@@ -1,0 +1,16 @@
+window:
+  size_minutes: 5
+  stride_minutes: 1
+
+telemetry:
+  # expected normalized columns after ingest:
+  # timestamp,node_id,cpu_pct,latency_ms,throughput_mbps,packet_loss_pct,mem_pct,if_errors
+  required_cols:
+    - cpu_pct
+    - latency_ms
+    - throughput_mbps
+
+flows:
+  # expected binetflow columns (after parsing)
+  # StartTime,Dur,Proto,SrcAddr,Sport,Dir,DstAddr,Dport,State,sTos,dTos,TotPkts,TotBytes,SrcBytes,Label
+  group_by: "SrcAddr"

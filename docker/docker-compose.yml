@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  nova:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../data:/app/data
+      - ../artifacts:/app/artifacts
+    command: ["bash", "-lc", "make download ingest build_dataset train_sup train_unsup eval infer"]
