@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Tuple
 
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 import torch
+from sklearn.preprocessing import StandardScaler
 from torch.utils.data import DataLoader, TensorDataset
 
 
@@ -55,7 +54,6 @@ def make_loaders(
     train_df, val_df, test_df = _time_split(df, split_cfg)
 
     scaler = StandardScaler()
-    fit_df = train_df if fit_scaler_on == "train" else df
     X_train = scaler.fit_transform(train_df[feature_cols].to_numpy(dtype=np.float32))
     X_val = scaler.transform(val_df[feature_cols].to_numpy(dtype=np.float32)) if len(val_df) else np.empty((0, len(feature_cols)), dtype=np.float32)
     X_test = scaler.transform(test_df[feature_cols].to_numpy(dtype=np.float32)) if len(test_df) else np.empty((0, len(feature_cols)), dtype=np.float32)

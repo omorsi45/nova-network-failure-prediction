@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import torch
 
-from nova.models.supervised import MLPClassifier
 from nova.models.autoencoder import AutoEncoder
+from nova.models.supervised import MLPClassifier
 
 
 def test_models_forward():

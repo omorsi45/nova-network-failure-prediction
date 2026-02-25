@@ -5,7 +5,6 @@ from pathlib import Path
 
 import pandas as pd
 
-
 # Example line:
 # 2025-08-20T12:01:10Z node=R1 severity=CRIT msg="BGP session down to 10.0.0.2"
 LINE_RE = re.compile(

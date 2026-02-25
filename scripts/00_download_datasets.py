@@ -7,7 +7,6 @@ import sys
 from pathlib import Path
 from urllib.request import urlopen, urlretrieve
 
-
 CISCO_RAW_BASE = "https://raw.githubusercontent.com/cisco-ie/telemetry/master"
 CTU_SCENARIO_BASE = "https://mcfp.felk.cvut.cz/publicDatasets"
 
@@ -48,7 +47,8 @@ def _ctu_scenario_name(num: int) -> str:
 
 
 def _pick_first_href(html: str, suffix: str) -> str | None:
-    m = re.search(r'href="([^"]*%s)"' % re.escape(suffix), html, re.IGNORECASE)
+    escaped = re.escape(suffix)
+    m = re.search(rf'href="([^"]*{escaped})"', html, re.IGNORECASE)
     return m.group(1) if m else None
 
 

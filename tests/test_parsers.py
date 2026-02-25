@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from nova.ingest.telemetry import load_normalized_telemetry
-from nova.ingest.syslog import load_syslog
 from nova.ingest.flows import load_ctu13_binetflow
+from nova.ingest.syslog import load_syslog
+from nova.ingest.telemetry import load_normalized_telemetry
 from nova.simulate.local_simulator import SimConfig, generate
 
 

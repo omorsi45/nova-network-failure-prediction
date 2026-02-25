@@ -5,7 +5,6 @@ from sklearn.metrics import (
     average_precision_score,
     confusion_matrix,
     f1_score,
-    precision_recall_curve,
     precision_score,
     recall_score,
     roc_auc_score,

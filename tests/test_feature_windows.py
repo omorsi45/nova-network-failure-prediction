@@ -3,8 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 
 from nova.features.windows import WindowSpec, make_windows
-from nova.simulate.local_simulator import SimConfig, generate
 from nova.ingest.telemetry import load_normalized_telemetry
+from nova.simulate.local_simulator import SimConfig, generate
 
 
 def test_make_windows(tmp_path: Path):

@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
+from typing import Any
+
 """
 Optional placeholder for GNS3 digital twin integration.
 
@@ -11,9 +14,6 @@ The repo runs without GNS3. If you want to hook into a real GNS3 lab:
 
 This file is intentionally minimal because GNS3 setups are very lab-specific.
 """
-
-from dataclasses import dataclass
-from typing import Any
 
 
 @dataclass

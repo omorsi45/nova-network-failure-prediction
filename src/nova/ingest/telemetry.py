@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 import numpy as np
 import pandas as pd
-
 
 NORMALIZED_COLS = [
     "timestamp",
@@ -22,7 +20,7 @@ NORMALIZED_COLS = [
 
 def _to_datetime_utc(s: pd.Series) -> pd.Series:
     # Handles unix seconds, ms, us, ns, or ISO strings
-    if np.issubdtype(s.dtype, np.number):
+    if pd.api.types.is_numeric_dtype(s):
         v = s.astype("float64")
         vmax = float(np.nanmax(v)) if len(v) else float("nan")
         # Heuristic based on typical epoch magnitudes:
@@ -70,8 +68,8 @@ def _read_cisco_header(header_path: Path) -> list[str]:
 def _pick_first(cols: Iterable[str], keywords: list[str]) -> str | None:
     lc = [c.lower() for c in cols]
     for kw in keywords:
-        for c, l in zip(cols, lc):
-            if kw in l:
+        for c, col_lower in zip(cols, lc, strict=True):
+            if kw in col_lower:
                 return c
     return None
 

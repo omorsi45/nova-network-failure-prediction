@@ -6,7 +6,6 @@ import pickle
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
 import torch
 
 from nova.common.io import ensure_dir, read_df

@@ -26,8 +26,8 @@ def telemetry_window_features(
             if seg.empty:
                 continue
 
-            def agg(col: str):
-                v = pd.to_numeric(seg[col], errors="coerce")
+            def agg(col: str, seg_df=seg):
+                v = pd.to_numeric(seg_df[col], errors="coerce")
                 return {
                     f"{col}_mean": float(v.mean()),
                     f"{col}_std": float(v.std(ddof=0)),
